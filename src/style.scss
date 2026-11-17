@@ -1,0 +1,1551 @@
+
+@use "settings" as *;
+
+
+
+
+.wrapper{
+min-height: 100%;
+display: flex;
+flex-direction: column;
+overflow:clip;
+}
+.wrapper > main{
+flex-grow: 1;
+}
+
+@keyframes rotateClockwise {
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+
+@keyframes rotateCounterClockwise {
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(-360deg);
+	}
+}
+
+
+
+
+/*_________________________________________HEADER___________________________________*/
+
+.header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 100;
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+background: linear-gradient(135deg, rgba(0, 117, 74, 0.25) 0%, rgba(0, 117, 74, 0.05) 100%);
+border-radius: 20px;
+border: 1px solid rgba(255, 255, 255, 0.15); 
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+		&__container {
+			padding: 48px 15px;
+			display: flex;
+			align-items: center;
+			gap: 94px;
+			@include media("desktop") {
+				justify-content: space-between;
+				gap: 20px;
+			}
+			@include media('tablet') {
+				padding: 15px;
+			}
+		}
+
+		&__name {
+			position: relative;
+			z-index: 110;
+			font-family: Montserrat;
+			font-weight: 800;
+			font-style: ExtraBold;
+			font-size: 37px;
+			line-height: 109.00000000000001%;
+			letter-spacing: -3%;
+			background: linear-gradient(263.46deg, #237249 3.14%, #35C66B 87.2%);
+			-webkit-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+
+
+
+		&__burger {
+			display: none;
+			@include media("desktop") {
+				display: block;
+				width: 30px;
+				height: 18px;
+				position: relative;
+				top: 0;
+				left: 0;
+				z-index: 100;
+				cursor: pointer;
+				transition: all 0.3s ease-in-out;
+
+				&.active{
+					width: 30px;
+					height: 30px;
+					border: 2px solid #35C66B;
+					border-radius: 50%;
+					transition: linear 0.3s;
+					.header__burger-line{
+						transform: scale(0);
+						transition: scale 0.3s;
+						&:first-child{
+						top: calc(50% - 1px);
+						transform: rotate(-45deg);
+						transition: all 0.3s;
+						}
+						&:last-child{
+							bottom: calc(50% - 1px);
+							transform: rotate(45deg);
+							transition: all 0.3s;
+						}
+					}
+				}
+			}
+		}
+
+		&__burger-line {
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			top: calc(50% - 1px);
+			background: linear-gradient(267.2deg, #237249 3.05%, #35C66B 75.72%);
+			transition: all 0.3s;
+			&:first-child {
+				top: 0;
+				transition: all 0.2s;
+			}
+			&:last-child {
+				bottom: 0;
+				top: auto;
+				transition: all 0.2s;
+			}
+		}
+}
+.menu {
+	@include media("desktop") {
+            overflow: auto;
+            position: fixed;
+			display: flex;
+            z-index: 100;
+            top: 0;
+            left: -100vw;
+            height: 100vh;
+            width: 100%;
+			background: url('/StarBucks/header/header-menu-bg.webp');
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+            transition: left 0.3s ease-in-out;
+				&.active{
+					top: 0;
+					left: 0;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					.menu__list{
+						flex-direction: column;
+						gap: 40px;
+					}
+				}
+			}
+
+		&__list {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 94px;
+		}
+
+
+
+		&__link {
+			font-family: Montserrat;
+			font-weight: 400;
+			font-size: 19px;
+			line-height: 100%;
+			letter-spacing: 0%;
+			vertical-align: bottom;
+			color: #D9D9D9;
+			&:hover{
+				background: linear-gradient(263.46deg, #237249 3.14%, #35C66B 87.2%);
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+				text-decoration:underline;
+			}
+		}
+}
+/*_________________________________________HEADER-END___________________________________*/
+
+
+/*_________________________________________HERO___________________________________*/
+
+.hero {
+margin-top: 169px;
+		&__container {
+			display: flex;
+			justify-content: space-between;
+
+			@media (max-width: 1060px) {
+				flex-direction: column;
+				align-items: center;
+				gap: 60px;
+			}
+		}
+
+		&__main {
+			max-width: 570px;
+			display: flex;
+			flex-direction: column;
+			gap: 40px;
+		}
+
+		&__title {
+			font-family: Montserrat;
+			font-weight: 800;
+			font-style: ExtraBold;
+			font-size: 80px;
+			line-height: 109.00000000000001%;
+			letter-spacing: -3%;
+			color: #FFFFFF;
+			span {
+			background: linear-gradient(263.46deg, #237249 3.14%, #35C66B 87.2%);
+			-webkit-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+			}
+			@media (max-width: 545px) {
+				font-size: 48px;
+			}
+		}
+
+		&__text {
+			font-family: Montserrat;
+			font-weight: 400;
+			font-size: 20px;
+			line-height: 163%;
+			letter-spacing: -2%;
+			color: #D9D9D9;
+			@media (max-width: 545px) {
+				font-size: 12px;
+			}
+		}
+
+		&__btn {
+			display: flex;
+			justify-content: center;
+			gap:17px;
+			@include media('phone'){
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+
+
+}
+.btn {
+
+		&__link {
+			position: relative;
+			border: none;
+			background: #121517; 
+			border-radius: 100px; 
+			font-family: Montserrat;
+			font-weight: 400;
+			font-size: 24px;
+			line-height: 146%;
+			letter-spacing: -3%;
+			color: #D9D9D9;
+			// Создаем градиентную рамку с помощью маски
+			&::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				border-radius: inherit;
+				padding: 1px; // Толщина рамки
+				background: linear-gradient(146.68deg, #DADADA -17.38%, rgba(218, 218, 218, 0) 91.61%);
+				
+				// Магия CSS, которая вырезает середину и оставляет только тонкий контур
+				-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+				mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+				-webkit-mask-composite: xor;
+				mask-composite: exclude;
+				
+				pointer-events: none; // Чтобы клики проходили сквозь рамку
+			}
+			&.active {
+				font-family: Montserrat;
+				font-weight: 639;
+				font-style: SemiBold;
+				font-size: 24px;
+				line-height: 146%;
+				letter-spacing: -2%;
+				color: #FFFFFF;
+				background: linear-gradient(265.23deg, #237249 6.79%, #35C66B 97.2%);
+			}
+		}
+
+		&__link-select {
+			padding: 20px 78px;
+			@media (max-width: 545px) {
+				padding: 13px 52px;
+			}
+		}
+
+		&__link-more {
+			padding: 20px 54px;
+			@media (max-width: 545px) {
+				padding: 13px 36px;
+			}
+		}
+}
+.img {
+
+		&__cup {
+			position: relative;
+			width: 100%;
+		}
+
+		&__main {
+			max-width: 100%;
+			filter: 
+			drop-shadow(-10px -6px 30px rgba(53, 198, 107, 0.45))
+			drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.4));
+		}
+
+		&__discount-wrapper{
+			position: absolute;
+			top: 0;
+			right: 40px;
+		}
+
+		&__discount-block{
+			position: relative;
+		}
+
+		&__discount {
+			filter: 
+			drop-shadow(6px -6px 15px rgba(53, 198, 107, 0.45))
+			drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.4));
+			@media (max-width: 545px) {
+				width: 100px;
+				height: 100px;
+			}
+		}
+
+		&__discount-text{
+			position: absolute;
+			top: 50%;
+			right: 0%;
+			transform: translate(-50%, -50%) rotate(-28deg);
+			font-family: Montserrat;
+			font-weight: 500;
+			font-style: Medium;
+			font-size: 39px;
+			line-height: 86%;
+			letter-spacing: -2%;
+			text-align: center;
+			text-transform: uppercase;
+			color: #FFFFFF;
+			@media (max-width: 545px) {
+				font-size: 20px;
+			}
+		}
+}
+
+
+/*_________________________________________HERO-END___________________________________*/
+
+
+/*_________________________________________HAVE___________________________________*/
+
+.have {
+
+		&__container {
+			padding: 100px 15px;
+		}
+
+		&__block {
+			position: relative;
+			background: linear-gradient(264.52deg, #FFFFFF 4.95%, #E5E5E5 64.19%, #FBFBFB 88.37%);
+			border-radius: 46px;
+			max-width: 1030px;
+			padding: 40px 0;
+			margin: 0 auto;
+			display: flex;
+			justify-content: center;
+			gap: 130px;
+			align-items: flex-start;
+
+			@media (max-width:1140px){
+				max-width: 830px;
+				gap: 70px;
+			}
+			@include media('desktop') {
+				width: 500px;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			@include media('tablet'){
+				width: 350px;
+			}
+			@include media('phone') {
+				width: 220px;
+			}
+		}
+
+		&__sticker {
+			position: absolute;
+			top: -55px;
+			left: -55px;
+			@include media('phone') {
+				top: -30px;
+				left: auto;
+			    right: -30px;
+			}
+		}
+
+		&__sticker-icon {
+			position: relative;
+			filter: 
+			drop-shadow(6px -6px 15px rgba(53, 198, 107, 0.45))
+			drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.4));
+		}
+
+		&__sticker-text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			font-family: Montserrat;
+			font-weight: 500;
+			font-style: Medium;
+			font-size: 32px;
+			line-height: 86%;
+			letter-spacing: -2%;
+			text-align: center;
+			text-transform: uppercase;
+			color:#FFFFFF;
+			@include media('phone') {
+				font-size: 18px;
+			}
+		}
+
+
+		&__item {
+			width: 180px;
+			display: flex;
+			flex-direction: column;
+		}
+
+		&__icon-wrapper {
+			width: 148px;
+			height: 148px;
+			margin: 0 auto;
+			text-align: center;
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+
+
+
+		&__circle{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 148px;
+			height: 148px;
+			background: linear-gradient(265.23deg, #237249 6.79%, #35C66B 97.2%);
+			border-radius: 50%;
+			z-index: 1;
+			filter: 
+			drop-shadow(6px -6px 15px rgba(53, 198, 107, 0.45))
+			drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.4));
+
+		}
+
+		&__img {
+			max-width: 100%;
+			max-height: 100%;
+			object-fit: contain;
+			position: relative;
+			z-index: 2;
+			transform: scale(1);
+			transition: all 0.3s;
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+
+		&__title {
+			margin-top: 20px;
+			font-family: Montserrat;
+			font-weight: 500;
+			font-style: Medium;
+			text-align: center;
+			font-size: 32px;
+			line-height: 163%;
+			letter-spacing: -2%;
+			color: #121517;
+		}
+
+		&__text {
+			margin-top: 4px;
+			font-family: Montserrat;
+			font-weight: 400;
+			font-size: 20px;
+			line-height: 163%;
+			letter-spacing: -2%;
+			text-align: center;
+			color: #121517E5;
+		}
+}
+
+/*_________________________________________HAVE-END___________________________________*/
+
+
+/*_________________________________________DELICIOUS___________________________________*/
+
+.delicious {
+
+		&__container {
+			padding: 135px 15px 100px 15px;
+			display: flex;
+			gap: 30px;
+			justify-content: space-between;
+			
+			@media (max-width:1050px) {
+				flex-direction: column;
+				align-items: center;
+				gap: 50px;
+			}
+
+			@include media('phone') {
+				padding: 64px 15px;
+			}
+		}
+
+		&__image {
+			position: relative;
+			width: 465px;
+			height: 680px;
+			background: #237249;
+			box-shadow: 0px 15px 55px rgba(35, 114, 73, 0.5);
+			@media (max-width:600px) {
+				width: 370px;
+				height: 545px;
+			}
+			@include media('phone') {
+				width: 163px;
+				height: 240px;
+			}
+		}
+
+		&__sticker {
+			position: absolute;
+			width: 162px;
+			height: 162px;
+			top: -36px;
+			right: -50px;
+			z-index: 2;
+
+			@media (max-width:600px) {
+				width: 120px;
+			    height: 120px;
+				top: -25px;
+			}
+			
+			@include media('phone') {
+				width: 78px;
+				height: 78px;
+			}
+		}
+
+		&__icon {
+			@media (max-width:600px) {
+				width: 120px;
+			    height: 120px;
+			}
+			@media (max-width:480px) {
+				width: auto;
+			    height: auto;
+			}
+		}
+
+		&__sticker-text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			font-family: Montserrat;
+			font-weight: 500;
+			font-style: Medium;
+			font-size: 38.76px;
+			line-height: 86%;
+			letter-spacing: -2%;
+			text-align: center;
+			text-transform: uppercase;
+			color: #FFFFFF;
+
+			@media (max-width:600px) {
+				font-size: 26px;
+			}
+
+			@include media('phone'){
+				font-size: 16px;
+			}
+		}
+
+		&__img {
+			width: 465px;
+			position: absolute;
+			object-fit: cover;
+			top: -36px;
+			left: 45px;
+			box-shadow: -14px 26px 65px 0px #00000063;
+
+			@media (max-width:600px) {
+				width: 370px;
+			}
+			@include media('phone') {
+				width: 163px;
+				height: 240px;
+				top: -12px;
+				left: 16px;
+			}
+		}
+
+		&__about {
+			max-width: 457px;
+			display: flex;
+			flex-direction: column;
+			gap: 63px;
+
+			@include media('phone'){
+				width: auto;
+				gap: 38px;
+				align-items: center;
+			}
+		}
+
+		&__title {
+			font-family: Montserrat;
+			font-weight: 800;
+			font-style: ExtraBold;
+			font-size: 80px;
+			line-height: 109.00000000000001%;
+			letter-spacing: -3%;
+			color: #FFFFFF;
+			span{
+				background: linear-gradient(263.46deg, #237249 3.14%, #35C66B 87.2%);
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+
+			@include media('phone'){
+				text-align: center;
+				font-size: 48px;
+			}
+		}
+
+		&__text {
+			font-family: Montserrat;
+			font-weight: 400;
+			font-size: 20px;
+			line-height: 163%;
+			letter-spacing: -2%;
+			color: #D9D9D9;
+
+			@include media('phone'){
+				font-size: 14px;
+			}
+		}
+
+		&__video {
+			position: relative;
+			width: 447px;
+			height: 275px;
+			border-radius: 20px;
+			overflow: hidden;
+
+			@include media('phone'){
+				width: 255px;
+				height: 163px;
+			}
+		}
+
+		&__video-poster {
+			position: relative;
+			width: 100%;
+		}
+
+		&__video-img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		&__video-btn {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			padding: 20px 42px;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			background: linear-gradient(265.23deg, #237249 6.79%, #35C66B 97.2%);
+			border-radius: 83px;
+			font-family: Montserrat;
+			font-weight: 639;
+			font-style: SemiBold;
+			font-size: 24px;
+			line-height: 146%;
+			letter-spacing: -2%;
+			color: #FFFFFF;
+			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+			transition: transform 0.2s ease;
+			white-space: nowrap;
+
+			&:hover {
+				transform: translate(-50%, -50%) scale(1.05);
+			}
+
+			@include media('phone'){
+				padding: 11px 25px;
+				font-size: 14px;
+			}
+		}
+}
+
+
+.video-iframe {
+	width: 100%;
+    height: 100%;
+    border: none;
+}
+/*_________________________________________DELICIOUS-END___________________________________*/
+
+
+/*_________________________________________PRODUCTS___________________________________*/
+
+.products {
+
+		&__container {
+			padding: 0px 15px 100px 15px;
+		}
+
+		&__top {
+			display: flex;
+			justify-content: center;
+			gap: 72px;
+			align-items: center;
+
+			@include media('desktop'){
+				flex-direction: column;
+			}
+			@include media('phone'){
+				gap: 36px;
+			}
+		}
+
+		&__title {
+			max-width: 392px;
+			font-family: Montserrat;
+			font-weight: 800;
+			font-style: ExtraBold;
+			font-size: 80px;
+			line-height: 109.00000000000001%;
+			letter-spacing: -3%;
+			color: #FFFFFF;
+			span{
+				background: linear-gradient(263.46deg, #237249 3.14%, #35C66B 87.2%);
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+			@include media('phone'){
+				font-size: 53px;
+			}
+		}
+
+		&__text {
+			max-width: 444px;
+			font-family: Montserrat;
+			font-weight: 400;
+			font-size: 20px;
+			line-height: 163%;
+			letter-spacing: -2%;
+			color: #D9D9D9;
+			@include media('phone'){
+				font-size: 13px;
+			}
+		}
+
+		&__slider {
+			margin-top: 63px;
+			width: 1050px;
+			@include media('desktop') {
+				width: 600px;
+			}
+
+			@media (max-width:630px) {
+				width: 300px;
+			}
+		}
+
+
+
+
+
+		&__slider-btn {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 30px;
+			margin-top: 54px;
+		}
+}
+
+.swiper-button-prev{
+	img{
+		transform: rotate(180deg)
+	}
+	&::before {
+		animation: rotateCounterClockwise 3s linear infinite;
+	}
+}
+.swiper-button-next{
+	&::before {
+		animation: rotateClockwise 3s linear infinite;
+	}
+}
+
+
+
+.swiper-button-next,
+.swiper-button-prev{
+	position: relative;
+	padding: 42px;
+	border-radius: 29px;
+	overflow: hidden;
+	background: #121517;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	border: none;
+	// 1. Вращающийся конический градиент (сама "змейка")
+	&::before {
+		content: '';
+		position: absolute;
+		// Делаем элемент больше кнопки, чтобы при вращении углы не пустовали
+		width: 150px;
+		height: 150px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: conic-gradient(
+			from 0deg,
+			transparent 0%,
+			#35C66B 90%,
+			#FFFFFF 100%
+		);
+		pointer-events: none;
+	}
+
+	// 2. Вырезаем серединку кнопки, оставляя только рамку
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 1.5px; 
+		background: #121517;
+		border-radius: 27.5px; // Чуть меньше радиуса родителя (29px - 1.5px)
+		z-index: 1;
+		pointer-events: none;
+	}
+
+	// Поднимаем иконку стрелки выше псевдоэлементов, чтобы она не перекрывалась
+	img {
+		position: relative;
+		z-index: 2;
+	}
+}
+
+.item {
+
+	&__card{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 277px;
+		padding: 17px 47px 32px 47px;
+		position: relative;
+		border-radius: 29px;
+		background: #121517;
+		overflow: hidden;
+
+&::before {
+		content: '';
+		position: absolute;
+		// Делаем подложку большой квадратной, чтобы она гарантированно перекрывала всю карточку при вращении
+		width: 650px;
+		height: 650px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		
+		// Плавный градиент: яркая белая "голова", переходящая в серый и затухающая в прозрачный
+		background: conic-gradient(
+			from 0deg at 50% 50%,
+			transparent 0deg,
+			rgba(218, 218, 218, 0.1) 270deg,
+			rgba(218, 218, 218, 0.5) 330deg,
+			#FFFFFF 360deg
+		);
+		
+		pointer-events: none;
+		// Вращение по часовой стрелке (animation: rotateClockwise уже есть у тебя в проекте)
+		animation: rotateClockwise 4s linear infinite;
+	}
+
+	// 2. Вырезаем серединку карточки, оставляя только тонкую рамку
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 1.35px; // Толщина рамки
+		background: #121517; // Цвет фона карточки внутри рамки
+		border-radius: 27.65px;
+		z-index: 1;
+		pointer-events: none;
+	}
+
+	// Поднимаем весь контент карточки выше рамки
+	& > * {
+		position: relative;
+		z-index: 2;
+	}
+
+	&:hover,
+    &:focus-within {
+        &::before {
+            background: conic-gradient(
+                from 0deg,
+                transparent 0%,
+                #35C66B 90%,
+                #FFFFFF 100%
+            );
+        }
+    }
+	}
+
+		&__img-card{
+			position: relative;
+			width: 180px;
+			height: 241px;
+			&::before{
+				content: '';
+				position: absolute;
+				z-index: -1;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				width: 180px;
+				height: 180px;
+				border-radius: 50%;
+				background: linear-gradient(267.2deg, #237249 3.05%, #35C66B 75.72%);
+				box-shadow: 0px 15px 55px rgba(35, 114, 73, 0.5);
+			}
+		}
+
+		&__img {
+			max-width: 100%;
+			height: 100%;
+		}
+
+		&__name {
+			font-family: Montserrat;
+			font-weight: 500;
+			font-style: Medium;
+			font-size: 32px;
+			line-height: 163%;
+			letter-spacing: -2%;
+			color: #FFFFFF;
+		}
+
+		&__text {
+			margin-top: 18px;
+			font-family: Montserrat;
+			font-weight: 400;
+			font-size: 20px;
+			line-height: 163%;
+			letter-spacing: -2%;
+			text-align: center;
+			color: #D9D9D9;
+		}
+
+		&__price {
+			margin-top: 7px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 32px;
+			font-family: Montserrat;
+			font-weight: 500;
+			font-style: Medium;
+			font-size: 32px;
+			line-height: 163%;
+			letter-spacing: -2%;
+			color: #FFFFFF;
+			white-space: nowrap;
+			span{
+				font-weight: 400;
+				font-size: 20px;
+				line-height: 163%;
+				letter-spacing: -2%;
+				color: #D9D9D9;
+			}
+		}
+
+		&__btn {
+			margin-top: 30px;
+			padding: 14px 38px;
+			background: linear-gradient(265.23deg, #237249 6.79%, #35C66B 97.2%);
+			border-radius: 60px;
+			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+			transition: transform 0.2s ease;
+			white-space: nowrap;
+			font-family: Montserrat;
+			font-weight: 600;
+			font-style: SemiBold;
+			font-size: 17px;
+			line-height: 146%;
+			letter-spacing: -2%;
+			color: #FFFFFF;
+			cursor: pointer;
+			pointer-events: auto;
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+}
+
+/*_________________________________________PRODUCTS___________________________________*/
+
+
+/*_________________________________________EVENTS___________________________________*/
+
+.events {
+
+		&__container {
+			padding: 0 15px 100px 15px;
+		}
+
+
+		&__top{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 72px;
+			flex-direction: row-reverse;
+
+			@include media('desktop') {
+				flex-direction: column;
+				gap: 40px;
+			}
+			@include media('phone') {
+				flex-direction: column;
+				gap: 30px;
+			}
+		}
+
+		&__title {
+			max-width: 366px;
+			font-family: Montserrat;
+			font-weight: 800;
+			font-style: ExtraBold;
+			font-size: 80px;
+			line-height: 109.00000000000001%;
+			letter-spacing: -3%;
+			color: #FFFFFF;
+			text-align: center;
+			span{
+				background: linear-gradient(263.46deg, #237249 3.14%, #35C66B 87.2%);
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+			@include media('phone') {
+				font-size: 53px;
+			}
+		}
+
+		&__text {
+			max-width: 457px;
+			font-family: Montserrat;
+			font-weight: 400;
+			font-size: 20px;
+			line-height: 163%;
+			letter-spacing: -2%;
+			color: #D9D9D9;
+			@include media('phone') {
+				font-size: 14px;
+			}
+		}
+
+		&__block {
+			margin-top: 54px;
+			display: grid;
+			grid-template-columns: repeat(6,1fr);
+			gap: 24px;
+
+			.events__card:nth-child(1),
+			.events__card:nth-child(2) {
+				grid-column: span 3;
+			}
+
+			.events__card:nth-child(3),
+			.events__card:nth-child(4),
+			.events__card:nth-child(5){
+				grid-column: span 2;
+			}
+
+			@media (max-width:1250px) {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		&__card {
+			position: relative;
+			width: 100%;
+			max-width: 614px; 
+			justify-self: center; 
+			height: 260px;
+			border-radius: 30px;
+			overflow: hidden;
+		}
+
+		&__card-bg {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 30px;
+			display: block;
+		}
+
+		&__item {
+			position: absolute;
+			inset: 0; 
+			padding: 44px 25px 25px 25px;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		&__name {
+			width: 230px;
+			font-family: Montserrat;
+			font-weight: 500;
+			font-style: Medium;
+			font-size: 32px;
+			line-height: 109.00000000000001%;
+			letter-spacing: 0%;
+			color: #FFFFFF;
+			@media (max-width:1250px){
+				font-size: 28px;
+			}
+		}
+
+		&__btn {
+			display: inline-block;
+			margin-top: auto;
+			padding: 20px 52px;
+			background: linear-gradient(267.2deg, #237249 3.05%, #35C66B 75.72%);
+			border-radius: 82px;
+			font-family: Montserrat;
+			font-weight: 600;
+			font-style: SemiBold;
+			font-size: 24px;
+			line-height: 146%;
+			letter-spacing: -3%;
+			color: #D9D9D9;
+			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+			transition: transform 0.2s ease;
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+}
+/*_________________________________________EVENTS-END___________________________________*/
+
+
+/*_________________________________________CONTACTS___________________________________*/
+
+
+.contacts {
+
+		&__container {
+			padding: 100px 15px 100px 15px;
+		}
+
+		&__block {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			gap: 30px;
+			
+			@include media('desktop') {
+				flex-direction: column-reverse;
+				
+			}
+		}
+
+		&__about {
+			max-width: 391px;
+			display: flex;
+			flex-direction: column;
+			gap: 52px;
+		}
+
+		&__title {
+			font-family: Montserrat;
+			font-weight: 800;
+			font-style: ExtraBold;
+			font-size: 80px;
+			line-height: 109.00000000000001%;
+			letter-spacing: -3%;
+			color: #FFFFFF;
+			span{
+				background: linear-gradient(263.46deg, #237249 3.14%, #35C66B 87.2%);
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+			@include media('desktop') {
+				text-align: center;
+			}
+			@include media('phone'){
+				font-size: 48px;
+			}	
+		}
+
+		&__text {
+			font-family: Montserrat;
+			font-weight: 400;
+			font-size: 20px;
+			line-height: 163%;
+			letter-spacing: -2%;
+			color: #D9D9D9;
+			@include media('phone'){
+				font-size: 14px;
+			}
+		}
+
+		&__btns {
+			display: flex;
+			flex-direction: column;
+			gap: 28px;
+		}
+
+		&__btns-link {
+			display: flex;
+			align-items: center;
+			gap: 14px;
+			font-family: Montserrat;
+			font-weight: 500;
+			font-style: Medium;
+			font-size: 32px;
+			line-height: 132%;
+			letter-spacing: 0%;
+			color: #FFFFFF;
+			transition: all 0.3s;
+			@include media('phone'){
+				font-size: 21px;
+			}
+			&:hover{
+				background: linear-gradient(263.46deg, #237249 3.14%, #35C66B 87.2%);
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+				text-decoration:underline;
+			}
+		}
+
+		&__image {
+			position: relative;
+			width: 354px;
+			height: 520px;
+			background: #237249;
+            box-shadow: 0px 15px 55px rgba(35, 114, 73, 0.5);
+
+			@include media('phone') {
+				width: 235px;
+				height: 346px;
+			}
+		}
+
+		&__sticker {
+			position: absolute;
+			width: 162px;
+			height: 162px;
+			top: -36px;
+			left: -50px;
+			z-index: 2;
+
+			@media (max-width:600px) {
+				width: 120px;
+			    height: 120px;
+				top: -17px;
+				left: -20px;
+			}
+			
+			@include media('phone') {
+				width: 78px;
+				height: 78px;
+			}
+
+		}
+
+		&__icon {
+			@media (max-width:600px) {
+				width: 120px;
+			    height: 120px;
+			}
+			@media (max-width:480px) {
+				width: auto;
+			    height: auto;
+			}
+
+		}
+
+		&__sticker-text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			font-family: Montserrat;
+			font-weight: 500;
+			font-style: Medium;
+			font-size: 38px;
+			line-height: 86%;
+			letter-spacing: -2%;
+			text-align: center;
+			text-transform: uppercase;
+			color: #FFFFFF;
+
+			@media (max-width:600px) {
+				font-size: 26px;
+			}
+
+			@include media('phone'){
+				font-size: 16px;
+			}
+		}
+
+		&__img {
+			position: absolute;
+			bottom: 27px;
+			right: 34px;
+			object-fit: cover;
+			box-shadow: -14px 26px 65px 0px #00000063;
+
+			@include media('phone') {
+				width: 235px;
+				height: 346px;
+				bottom: 12px;
+			    right: 15px;
+			}
+		}
+}
+
+/*_________________________________________CONTACTS___________________________________*/
+
+/*_________________________________________FOOTER___________________________________*/
+
+.footer {
+
+		&__container {
+			padding: 140px 15px 45px 15px;
+		}
+
+		&__block {
+			display: flex;
+			justify-content: space-between;
+			gap: 30px;
+			@include media('desktop') {
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				gap: 50px;
+				.footer__logo{
+					order: 1;
+				}
+				.footer__menu{
+					order: 3;
+				}
+				.footer__button{
+					order: 2;
+				}
+			}
+		}
+
+
+		&__logo-link {
+			font-family: Montserrat;
+			font-weight: 800;
+			font-style: ExtraBold;
+			font-size: 37.6px;
+			line-height: 109.00000000000001%;
+			letter-spacing: -3%;
+			background: linear-gradient(263.46deg, #237249 3.14%, #35C66B 87.2%);
+			-webkit-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+
+		&__menu {
+			display: flex;
+			justify-content:center;
+			gap: 80px;
+
+			@include media('desktop'){
+				display: grid;
+				grid-template-columns: repeat(2,1fr);
+			}
+			
+		}
+		&__menu-item {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			font-family: Montserrat;
+			font-weight: 400;
+			font-size: 20px;
+			line-height: 100%;
+			letter-spacing: -1%;
+			@include media('phone') {
+				font-size: 15px;
+			}
+		}
+
+		&__menu-title {
+			color: #BBB3B3;
+			
+		}
+
+		&__menu-link {
+			cursor: pointer;
+			color: #BBB3B36E;
+			&:hover{
+				background: linear-gradient(263.46deg, #237249 3.14%, #35C66B 87.2%);
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+				text-decoration:underline;
+			}
+		}
+		&__button {
+			width: 84px;
+			height: 84px;
+		}
+
+		&__button-up {
+			position: relative;
+			padding: 42px;
+			border-radius: 29px;
+			overflow: hidden;
+			background: #121517;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+			border: none;
+			// 1. Вращающийся конический градиент (сама "змейка")
+			&::before {
+				content: '';
+				position: absolute;
+				// Делаем элемент больше кнопки, чтобы при вращении углы не пустовали
+				width: 150px;
+				height: 150px;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				animation: rotateClockwise 3s linear infinite;
+				background: conic-gradient(
+					from 0deg,
+					transparent 0%,
+					#35C66B 90%,
+					#FFFFFF 100%
+				);
+				pointer-events: none;
+			}
+
+			// 2. Вырезаем серединку кнопки, оставляя только рамку
+			&::after {
+				content: '';
+				position: absolute;
+				inset: 1.5px; 
+				background: #121517;
+				border-radius: 27.5px; // Чуть меньше радиуса родителя (29px - 1.5px)
+				z-index: 1;
+				pointer-events: none;
+			}
+
+			// Поднимаем иконку стрелки выше псевдоэлементов, чтобы она не перекрывалась
+			img {
+				position: relative;
+				z-index: 2;
+				transform: rotate(-90deg);
+			}
+		}
+
+		&__me{
+			margin-top: 80px;
+			font-family: Montserrat;
+			font-weight: 500;
+			font-style: Medium;
+			font-size: 26px;
+			line-height: 100%;
+			text-align: center;
+			letter-spacing: 0%;
+			color: #FFFFFF;
+			span{
+			background: linear-gradient(263.46deg, #237249 3.14%, #35C66B 87.2%);
+			-webkit-background-clip: text;
+			background-clip: text;
+			-webkit-text-fill-color: transparent;
+			}
+
+			@include media('tablet') {
+				font-size: 17px;
+			}
+
+			@include media('phone') {
+				font-size: 10px;
+			}
+		}
+}
+
+/*_________________________________________FOOTER-END___________________________________*/
+
