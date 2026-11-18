@@ -38,14 +38,13 @@ flex-grow: 1;
 /*_________________________________________HEADER___________________________________*/
 
 .header {
+backdrop-filter: blur(12px);
+background: linear-gradient(135deg, rgba(0, 117, 74, 0.25) 0%, rgba(0, 117, 74, 0.05) 100%);
 position: fixed;
 top: 0;
 left: 0;
 width: 100%;
 z-index: 100;
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-background: linear-gradient(135deg, rgba(0, 117, 74, 0.25) 0%, rgba(0, 117, 74, 0.05) 100%);
 border-radius: 20px;
 border: 1px solid rgba(255, 255, 255, 0.15); 
 box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);

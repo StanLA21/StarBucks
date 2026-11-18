@@ -211,7 +211,7 @@ function MainSections() {
                 <div className="hero__container">
                     <div className="hero__main">
                         <h1 className="hero__title">New Cafe by <span>StarBucks</span></h1>
-                        <p className="hero__text">Have time to buy the most harmonious drinks in the
+                        <p className="hero__text">Havсe time to buy the most harmonious drinks in the
                             new Starbucks coffee and don't forget about the discount!</p>
                         <div className="hero__btn btn">
                             <a href="#products" className={`btn__link btn__link-select ${activeIndex === 0 ? 'active' : ''}`} onClick={(e) => handleButtonClick(0,'products', e)}>Select a coffee </a>
