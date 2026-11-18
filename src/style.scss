@@ -725,6 +725,9 @@ margin-top: 169px;
 			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 			transition: transform 0.2s ease;
 			white-space: nowrap;
+			span{
+				background: transparent;
+			}
 
 			&:hover {
 				transform: translate(-50%, -50%) scale(1.05);
